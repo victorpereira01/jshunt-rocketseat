@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import api from '../../services/api';
+import { Link } from 'react-router-dom';
 
 import './styles.css';
+import Main from '../main';
 
 export default class Product extends Component {
     state = {
@@ -14,7 +16,6 @@ export default class Product extends Component {
         const response = await api.get(`/products/${id}`);
 
         this.setState({ product: response.data });
-
     }
 
     render() {
@@ -23,10 +24,10 @@ export default class Product extends Component {
             <div className="product-info">
                 <h1>{product.title}</h1>
                 <p>{product.description}</p>
-
                 <p>
                     URL: <a href={product.url}>{product.url}</a>
                 </p>
+                <button><Link to="/">Voltar</Link></button>
             </div>
         )
     }

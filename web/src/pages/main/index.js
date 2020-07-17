@@ -20,7 +20,6 @@ export default class Main extends Component {
 
         const { docs, ...productInfo } = response.data;
 
-        console.log("loadProducts:" + page);
         this.setState({ products: docs, productInfo, page });
     };
 
